@@ -1,0 +1,69 @@
+@model RailwayManagementSystem.Models.Station
+
+@{
+    ViewData["Title"] = "Create Station";
+}
+
+<h1>Create Station</h1>
+
+<h4>Station</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="StationName" class="control-label"></label>
+                <input asp-for="StationName" class="form-control" />
+                <span asp-validation-for="StationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Latitude" class="control-label"></label>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longitude" class="control-label"></label>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StationCode" class="control-label"></label>
+                <input asp-for="StationCode" class="form-control" />
+                <span asp-validation-for="StationCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StationType" class="control-label"></label>
+                <input asp-for="StationType" class="form-control" />
+                <span asp-validation-for="StationType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPlatforms" class="control-label"></label>
+                <input asp-for="NumberOfPlatforms" class="form-control" />
+                <span asp-validation-for="NumberOfPlatforms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facilities" class="control-label"></label>
+                <textarea asp-for="Facilities" class="form-control"></textarea>
+                <span asp-validation-for="Facilities" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperationalStatus" class="control-label"></label>
+                <input asp-for="OperationalStatus" class="form-control" />
+                <span asp-validation-for="OperationalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CityID" class="control-label"></label>
+                <input asp-for="CityID" class="form-control" />
+                <span asp-validation-for="CityID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

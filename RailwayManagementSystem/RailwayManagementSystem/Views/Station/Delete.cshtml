@@ -1,0 +1,46 @@
+@model RailwayManagementSystem.Models.Station
+
+@{
+    ViewData["Title"] = "Delete Station";
+}
+
+<h1>Delete Station</h1>
+
+<h4>Station</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Station Name</dt>
+        <dd class="col-sm-10">@Model.StationName</dd>
+
+        <dt class="col-sm-2">Latitude</dt>
+        <dd class="col-sm-10">@Model.Latitude</dd>
+
+        <dt class="col-sm-2">Longitude</dt>
+        <dd class="col-sm-10">@Model.Longitude</dd>
+
+        <dt class="col-sm-2">Station Code</dt>
+        <dd class="col-sm-10">@Model.StationCode</dd>
+
+        <dt class="col-sm-2">Station Type</dt>
+        <dd class="col-sm-10">@Model.StationType</dd>
+
+        <dt class="col-sm-2">Number of Platforms</dt>
+        <dd class="col-sm-10">@Model.NumberOfPlatforms</dd>
+
+        <dt class="col-sm-2">Facilities</dt>
+        <dd class="col-sm-10">@Model.Facilities</dd>
+
+        <dt class="col-sm-2">Operational Status</dt>
+        <dd class="col-sm-10">@Model.OperationalStatus</dd>
+
+        <dt class="col-sm-2">City</dt>
+        <dd class="col-sm-10">@Model.CityID</dd> <!-- Replace with City Name if needed -->
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" name="StationID" value="@Model.StationID" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,43 @@
+@model IEnumerable<RailwayManagementSystem.Models.City>
+
+@{
+    ViewData["Title"] = "Cities";
+}
+
+<h1>Cities</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New City</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>City Name</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+        <th>Population</th>
+        <th>Is Capital</th>
+        <th>Country</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var city in Model)
+    {
+        <tr>
+            <td>@city.CityName</td>
+            <td>@city.Longitude</td>
+            <td>@city.Latitude</td>
+            <td>@city.Population</td>
+            <td>@(city.IsCapital ? "Yes" : "No")</td>
+            <td>@city.CountryID</td> <!-- Replace CountryID with the related Country Name if necessary -->
+            <td>
+                <a href="@Url.Action("Edit", new { id = city.CityID })">Edit</a> |
+                <a href="@Url.Action("Details", new { id = city.CityID })">Details</a> |
+                <a href="@Url.Action("Delete", new { id = city.CityID })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

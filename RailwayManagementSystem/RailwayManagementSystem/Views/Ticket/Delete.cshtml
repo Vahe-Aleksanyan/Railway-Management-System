@@ -1,0 +1,40 @@
+@model RailwayManagementSystem.Models.Ticket
+
+@{
+    ViewData["Title"] = "Delete Ticket";
+}
+
+<h1>Delete Ticket</h1>
+
+<h4>Ticket</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Ticket Status</dt>
+        <dd class="col-sm-10">@Model.TicketStatus</dd>
+
+        <dt class="col-sm-2">Purchase Date</dt>
+        <dd class="col-sm-10">@Model.PurchaseDate</dd>
+
+        <dt class="col-sm-2">Payment Method</dt>
+        <dd class="col-sm-10">@Model.PaymentMethod</dd>
+
+        <dt class="col-sm-2">Discount Applied</dt>
+        <dd class="col-sm-10">@Model.DiscountApplied</dd>
+
+        <dt class="col-sm-2">Booking Reference</dt>
+        <dd class="col-sm-10">@Model.BookingReference</dd>
+
+        <dt class="col-sm-2">Total Price</dt>
+        <dd class="col-sm-10">@Model.TotalPrice</dd>
+
+        <dt class="col-sm-2">Passenger</dt>
+        <dd class="col-sm-10">@Model.PassengerID</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" name="TicketID" value="@Model.TicketID" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

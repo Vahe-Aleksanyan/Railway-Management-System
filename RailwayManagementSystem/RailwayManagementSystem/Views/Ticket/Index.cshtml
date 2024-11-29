@@ -1,0 +1,45 @@
+@model IEnumerable<RailwayManagementSystem.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<h1>Tickets</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Ticket</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Ticket Status</th>
+        <th>Purchase Date</th>
+        <th>Payment Method</th>
+        <th>Discount Applied</th>
+        <th>Booking Reference</th>
+        <th>Total Price</th>
+        <th>Passenger</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var ticket in Model)
+    {
+        <tr>
+            <td>@ticket.TicketStatus</td>
+            <td>@ticket.PurchaseDate</td>
+            <td>@ticket.PaymentMethod</td>
+            <td>@ticket.DiscountApplied</td>
+            <td>@ticket.BookingReference</td>
+            <td>@ticket.TotalPrice</td>
+            <td>@ticket.PassengerID</td> <!-- Replace PassengerID with the passenger name if needed -->
+            <td>
+                <a href="@Url.Action("Edit", new { id = ticket.TicketID })">Edit</a> |
+                <a href="@Url.Action("Details", new { id = ticket.TicketID })">Details</a> |
+                <a href="@Url.Action("Delete", new { id = ticket.TicketID })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

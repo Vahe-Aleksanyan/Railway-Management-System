@@ -1,0 +1,50 @@
+@model RailwayManagementSystem.Models.Ticket
+
+@{
+    ViewData["Title"] = "Create Ticket";
+}
+
+<h1>Create Ticket</h1>
+
+<h4>Ticket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label for="TicketStatus" class="control-label">Ticket Status</label>
+                <input id="TicketStatus" name="TicketStatus" class="form-control" />
+                <span asp-validation-for="TicketStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="PaymentMethod" class="control-label">Payment Method</label>
+                <input id="PaymentMethod" name="PaymentMethod" class="form-control" />
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="DiscountApplied" class="control-label">Discount Applied</label>
+                <input id="DiscountApplied" name="DiscountApplied" class="form-control" />
+                <span asp-validation-for="DiscountApplied" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="BookingReference" class="control-label">Booking Reference</label>
+                <input id="BookingReference" name="BookingReference" class="form-control" />
+                <span asp-validation-for="BookingReference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="TotalPrice" class="control-label">Total Price</label>
+                <input id="TotalPrice" name="TotalPrice" class="form-control" />
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="PassengerID" class="control-label">Passenger</label>
+                <input id="PassengerID" name="PassengerID" class="form-control" />
+                <span asp-validation-for="PassengerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

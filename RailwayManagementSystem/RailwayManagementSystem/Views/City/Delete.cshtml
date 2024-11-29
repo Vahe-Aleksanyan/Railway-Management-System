@@ -1,0 +1,37 @@
+@model RailwayManagementSystem.Models.City
+
+@{
+    ViewData["Title"] = "Delete City";
+}
+
+<h1>Delete City</h1>
+
+<h4>City</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">City Name</dt>
+        <dd class="col-sm-10">@Model.CityName</dd>
+
+        <dt class="col-sm-2">Longitude</dt>
+        <dd class="col-sm-10">@Model.Longitude</dd>
+
+        <dt class="col-sm-2">Latitude</dt>
+        <dd class="col-sm-10">@Model.Latitude</dd>
+
+        <dt class="col-sm-2">Population</dt>
+        <dd class="col-sm-10">@Model.Population</dd>
+
+        <dt class="col-sm-2">Is Capital</dt>
+        <dd class="col-sm-10">@Model.IsCapital</dd>
+
+        <dt class="col-sm-2">Country</dt>
+        <dd class="col-sm-10">@Model.CountryID</dd> <!-- Replace CountryID with related Country Name if needed -->
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CityID" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

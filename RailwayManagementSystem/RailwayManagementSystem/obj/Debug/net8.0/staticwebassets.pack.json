@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/vahealeksanyan/RiderProjects/RailwayManagementSystem/RailwayManagementSystem/obj/Debug/net8.0/scopedcss/projectbundle/RailwayManagementSystem.bundle.scp.css",
+      "PackagePath": "staticwebassets/RailwayManagementSystem.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/vahealeksanyan/RiderProjects/RailwayManagementSystem/RailwayManagementSystem/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/vahealeksanyan/RiderProjects/RailwayManagementSystem/RailwayManagementSystem/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/vahealeksanyan/RiderProjects/RailwayManagementSystem/RailwayManagementSystem/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/vahealeksanyan/RiderProjects/RailwayManagementSystem/RailwayManagementSystem/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.RailwayManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.RailwayManagementSystem.props",
+      "PackagePath": "build\\RailwayManagementSystem.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.RailwayManagementSystem.props",
+      "PackagePath": "buildMultiTargeting\\RailwayManagementSystem.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.RailwayManagementSystem.props",
+      "PackagePath": "buildTransitive\\RailwayManagementSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

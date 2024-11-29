@@ -1,0 +1,87 @@
+@model RailwayManagementSystem.Models.Station
+
+@{
+    ViewData["Title"] = "Edit Station";
+}
+
+<h1>Edit Station</h1>
+
+<h4>Station</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <!-- Hidden field to store StationID -->
+            <input type="hidden" name="StationID" value="@Model.StationID" />
+
+            <!-- Station Name -->
+            <div class="form-group">
+                <label for="StationName" class="control-label">Station Name</label>
+                <input id="StationName" name="StationName" class="form-control" value="@Model.StationName" />
+                <span asp-validation-for="StationName" class="text-danger"></span>
+            </div>
+
+            <!-- Latitude -->
+            <div class="form-group">
+                <label for="Latitude" class="control-label">Latitude</label>
+                <input id="Latitude" name="Latitude" class="form-control" value="@Model.Latitude" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+
+            <!-- Longitude -->
+            <div class="form-group">
+                <label for="Longitude" class="control-label">Longitude</label>
+                <input id="Longitude" name="Longitude" class="form-control" value="@Model.Longitude" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+
+            <!-- Station Code -->
+            <div class="form-group">
+                <label for="StationCode" class="control-label">Station Code</label>
+                <input id="StationCode" name="StationCode" class="form-control" value="@Model.StationCode" />
+                <span asp-validation-for="StationCode" class="text-danger"></span>
+            </div>
+
+            <!-- Station Type -->
+            <div class="form-group">
+                <label for="StationType" class="control-label">Station Type</label>
+                <input id="StationType" name="StationType" class="form-control" value="@Model.StationType" />
+                <span asp-validation-for="StationType" class="text-danger"></span>
+            </div>
+
+            <!-- Number of Platforms -->
+            <div class="form-group">
+                <label for="NumberOfPlatforms" class="control-label">Number of Platforms</label>
+                <input id="NumberOfPlatforms" name="NumberOfPlatforms" class="form-control" value="@Model.NumberOfPlatforms" />
+                <span asp-validation-for="NumberOfPlatforms" class="text-danger"></span>
+            </div>
+
+            <!-- Facilities -->
+            <div class="form-group">
+                <label for="Facilities" class="control-label">Facilities</label>
+                <textarea id="Facilities" name="Facilities" class="form-control">@Model.Facilities</textarea>
+                <span asp-validation-for="Facilities" class="text-danger"></span>
+            </div>
+
+            <!-- Operational Status -->
+            <div class="form-group">
+                <label for="OperationalStatus" class="control-label">Operational Status</label>
+                <input id="OperationalStatus" name="OperationalStatus" class="form-control" value="@Model.OperationalStatus" />
+                <span asp-validation-for="OperationalStatus" class="text-danger"></span>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="CityID" class="control-label">City</label>
+                <input id="CityID" name="CityID" class="form-control" value="@Model.CityID" />
+                <span asp-validation-for="CityID" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@model RailwayManagementSystem.Models.Schedule
+
+@{
+    ViewData["Title"] = "Create Schedule";
+}
+
+<h1>Create Schedule</h1>
+
+<h4>Schedule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Frequency" class="control-label"></label>
+                <input asp-for="Frequency" class="form-control" />
+                <span asp-validation-for="Frequency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureTime" class="control-label"></label>
+                <input asp-for="DepartureTime" class="form-control" type="time" />
+                <span asp-validation-for="DepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalTime" class="control-label"></label>
+                <input asp-for="ArrivalTime" class="form-control" type="time" />
+                <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalDuration" class="control-label"></label>
+                <input asp-for="TotalDuration" class="form-control" />
+                <span asp-validation-for="TotalDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScheduleDate" class="control-label"></label>
+                <input asp-for="ScheduleDate" class="form-control" type="date" />
+                <span asp-validation-for="ScheduleDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DaysOfOperation" class="control-label"></label>
+                <input asp-for="DaysOfOperation" class="form-control" />
+                <span asp-validation-for="DaysOfOperation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainNumber" class="control-label"></label>
+                <input asp-for="TrainNumber" class="form-control" />
+                <span asp-validation-for="TrainNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RailwayID" class="control-label"></label>
+                <input asp-for="RailwayID" class="form-control" />
+                <span asp-validation-for="RailwayID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RouteID" class="control-label"></label>
+                <input asp-for="RouteID" class="form-control" />
+                <span asp-validation-for="RouteID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

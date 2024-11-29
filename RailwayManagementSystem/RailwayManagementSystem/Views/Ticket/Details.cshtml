@@ -1,0 +1,39 @@
+@model RailwayManagementSystem.Models.Ticket
+
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<h1>Ticket Details</h1>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Ticket Status</dt>
+        <dd class="col-sm-10">@Model.TicketStatus</dd>
+
+        <dt class="col-sm-2">Purchase Date</dt>
+        <dd class="col-sm-10">@Model.PurchaseDate</dd>
+
+        <dt class="col-sm-2">Payment Method</dt>
+        <dd class="col-sm-10">@Model.PaymentMethod</dd>
+
+        <dt class="col-sm-2">Discount Applied</dt>
+        <dd class="col-sm-10">@Model.DiscountApplied</dd>
+
+        <dt class="col-sm-2">Booking Reference</dt>
+        <dd class="col-sm-10">@Model.BookingReference</dd>
+
+        <dt class="col-sm-2">Total Price</dt>
+        <dd class="col-sm-10">@Model.TotalPrice</dd>
+
+        <dt class="col-sm-2">Passenger</dt>
+        <dd class="col-sm-10">@Model.PassengerID</dd> <!-- Replace PassengerID with the passenger name if needed -->
+    </dl>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.TicketID })" class="btn btn-primary">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+</div>

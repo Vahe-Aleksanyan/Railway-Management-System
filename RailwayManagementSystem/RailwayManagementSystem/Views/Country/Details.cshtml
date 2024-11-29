@@ -1,0 +1,50 @@
+@model RailwayManagementSystem.Models.Country
+
+@{
+    ViewData["Title"] = "Country Details";
+}
+
+<h1>Country Details</h1>
+
+<div>
+    <h4>Country</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Country Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CountryName
+        </dd>
+        <dt class="col-sm-2">
+            Continent
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Continent
+        </dd>
+        <dt class="col-sm-2">
+            Region
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Region
+        </dd>
+        <dt class="col-sm-2">
+            Population
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Population
+        </dd>
+        <dt class="col-sm-2">
+            Area
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Area
+        </dd>
+    </dl>
+</div>
+
+
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.CountryID })">Edit</a> |
+    <a href="@Url.Action("Index")">Back to List</a>
+</div>

@@ -1,0 +1,64 @@
+@model RailwayManagementSystem.Models.Country
+
+@{
+    ViewData["Title"] = "Edit Country";
+}
+
+<h1>Edit Country</h1>
+
+<h4>Country</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" name="CountryID" value="@Model.CountryID" />
+
+            <div class="form-group">
+                <label for="CountryName" class="control-label">Country Name</label>
+                <input id="CountryName" name="CountryName" class="form-control" value="@Model.CountryName" />
+                <span asp-validation-for="CountryName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Longitude" class="control-label">Longitude</label>
+                <input id="Longitude" name="Longitude" class="form-control" value="@Model.Longitude" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Latitude" class="control-label">Latitude</label>
+                <input id="Latitude" name="Latitude" class="form-control" value="@Model.Latitude" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Population" class="control-label">Population</label>
+                <input id="Population" name="Population" class="form-control" value="@Model.Population" />
+                <span asp-validation-for="Population" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Continent" class="control-label">Continent</label>
+                <input id="Continent" name="Continent" class="form-control" value="@Model.Continent" />
+                <span asp-validation-for="Continent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Region" class="control-label">Region</label>
+                <input id="Region" name="Region" class="form-control" value="@Model.Region" />
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Area" class="control-label">Area</label>
+                <input id="Area" name="Area" class="form-control" value="@Model.Area" />
+                <span asp-validation-for="Area" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

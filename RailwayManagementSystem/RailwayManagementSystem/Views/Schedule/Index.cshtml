@@ -1,0 +1,51 @@
+@model IEnumerable<RailwayManagementSystem.Models.Schedule>
+
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+<h1>Schedules</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New Schedule</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Frequency</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Total Duration</th>
+        <th>Schedule Date</th>
+        <th>Days of Operation</th>
+        <th>Train Number</th>
+        <th>Status</th>
+        <th>Railway</th>
+        <th>Route</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var schedule in Model)
+    {
+        <tr>
+            <td>@schedule.Frequency</td>
+            <td>@schedule.DepartureTime</td>
+            <td>@schedule.ArrivalTime</td>
+            <td>@schedule.TotalDuration</td>
+            <td>@schedule.ScheduleDate.ToShortDateString()</td>
+            <td>@schedule.DaysOfOperation</td>
+            <td>@schedule.TrainNumber</td>
+            <td>@schedule.Status</td>
+            <td>@schedule.RailwayID</td> <!-- Replace RailwayID with the related Railway Name if needed -->
+            <td>@schedule.RouteID</td> <!-- Replace RouteID with the related Route Name if needed -->
+            <td>
+                <a href="@Url.Action("Edit", new { id = schedule.ScheduleID })">Edit</a> |
+                <a href="@Url.Action("Details", new { id = schedule.ScheduleID })">Details</a> |
+                <a href="@Url.Action("Delete", new { id = schedule.ScheduleID })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
