@@ -1,8 +1,6 @@
 -- 1. Station and Route Configuration
 
 -- Update station information
-
-
 UPDATE Station
 SET StationName = 'Yerevani Himnakan Kayaran', OperationalStatus = 'Operational'
 WHERE StationID = 1;
@@ -13,15 +11,11 @@ INSERT INTO Route (RouteID, RouteName, OperationalDays, Frequency, TotalDistance
 VALUES (6, 'Gyumriic Vanadzor', 'Yerekushabti, Choreqshabti, Urbat', 'Ereq angam shabatakan', 70.00, '01:30:00', 'Passenger');
 
 -- Add stops to a route
-INSERT INTO RouteStop (PlatformNumber, StopOrder, StopDuration, ArrivalTime, DepartureTime, DistanceFromPrevious, RouteID, StationID)
+INSERT INTO RouteStop (RouteStopID, PlatformNumber, StopOrder, StopDuration, ArrivalTime, DepartureTime, DistanceFromPrevious, RouteID, StationID)
 VALUES 
-(1, 1, '00:10:00', NULL, '08:00:00', 0.00, 6, 2),   -- Gyumri Kayaran
-(1, 2, '00:15:00', '09:15:00', '09:30:00', 40.00, 6, 3), -- Vanadzor Kayaran
-(1, 3, NULL, '10:15:00', NULL, 30.00, 6, 4);        -- Dilijan Kayaran
-
-
-
-
+(10, 1, 1, '00:10:00', NULL, '08:00:00', 0.00, 6, 2),   -- Gyumri Kayaran
+(11, 1, 2, '00:15:00', '09:15:00', '09:30:00', 40.00, 6, 3), -- Vanadzor Kayaran
+(12, 1, 3, NULL, '10:15:00', NULL, 30.00, 6, 4);        -- Dilijan Kayaran
 
 
 --average waiting time
@@ -99,8 +93,6 @@ ORDER BY
 LIMIT 1;
 
 
-
-
 --Trains Traveling Between Two Specific Cities
 
 SELECT DISTINCT r.RouteName, 
@@ -118,10 +110,8 @@ JOIN RouteStop rs2 ON r.RouteID = rs2.RouteID
 JOIN Station s2 ON rs2.StationID = s2.StationID
 LEFT JOIN RouteStop ri ON r.RouteID = ri.RouteID AND ri.StationID NOT IN (rs1.StationID, rs2.StationID)
 LEFT JOIN Station si ON ri.StationID = si.StationID
-WHERE s1.CityID = 1 AND s2.CityID = 2 -- Replace with specific CityIDs
+WHERE s1.CityID = 1 AND s2.CityID = 2
 GROUP BY r.RouteName, rs1.StationID, s1.StationName, rs2.StationID, s2.StationName, r.TotalDistance, r.EstimatedTravelTime;
-
-
 
 
 --Total Number of Business and Economy Class Seats for a Specific Route
@@ -131,14 +121,13 @@ SELECT r.RouteName,
 FROM Route r
 JOIN Schedule sch ON r.RouteID = sch.RouteID
 JOIN Railway rw ON sch.RailwayID = rw.RailwayID
-WHERE r.RouteID = 2 -- Replace with specific RouteID
+WHERE r.RouteID = 2 
 GROUP BY r.RouteName;
-
 
 
 --Routes Passing Through the Most Countries
 SELECT r.RouteName, 
-       COUNT(DISTINCT c.CountryID) AS CountryCount
+       COUNT(DISTINCT c.CountryID) + 1 AS CountryCount
 FROM Route r
 JOIN RouteStop rs ON r.RouteID = rs.RouteID
 JOIN Station s ON rs.StationID = s.StationID
@@ -146,9 +135,7 @@ JOIN City ci ON s.CityID = ci.CityID
 JOIN Country c ON ci.CountryID = c.CountryID
 GROUP BY r.RouteName
 ORDER BY CountryCount DESC
-LIMIT 8; -- Adjust to show more routes if needed
-
-
+LIMIT 8;
 
 
 --Report of Routes Sorted by Total Distance
@@ -158,8 +145,7 @@ FROM Route
 ORDER BY TotalDistance DESC;
 
 
-
--- Update for Business Class Seats:
+-- Update for Business Class Seats: decrease number by one(a seat is broken)
 UPDATE Railway
 SET BusinessClassSeats = BusinessClassSeats - 1
 WHERE RailwayID = (
@@ -167,7 +153,6 @@ WHERE RailwayID = (
     FROM Schedule sch
     JOIN TicketLeg tl ON sch.ScheduleID = tl.ScheduleID
     JOIN Seat s ON s.SeatID = tl.SeatID
-    WHERE tl.TicketID = 1 AND s.Class = 'Business'
-    LIMIT 1  -- Ensure only one RailwayID is returned
+    WHERE tl.TicketID = 3 AND s.Class = 'Business'
+    LIMIT 1 
 );
-

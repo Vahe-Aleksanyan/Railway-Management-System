@@ -27,8 +27,6 @@ INSERT INTO TicketLeg (LegOrder,TicketLegID, BoardingStationID, AlightingStation
 VALUES (1, 11, 2, 3, 5000.00, 1, 11, 1);
 
 
-
-
 -- Compute the total price of a ticket by summing up the prices of its ticket legs.
 
 CREATE OR REPLACE FUNCTION calculate_total_ticket_price(p_ticket_id INT)
@@ -46,11 +44,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 SELECT calculate_total_ticket_price(1) AS total_price;
-
-
-
-
-
 
 
 -- Automatically update the TotalPrice in the Ticket table whenever a new ticket leg is added or updated.
@@ -83,11 +76,6 @@ VALUES (15, 2, 5, 6, 3000.00, 8, 5, 3);
 
 -- Check updated TotalPrice
 SELECT TotalPrice FROM Ticket WHERE TicketID = 5;
-
-
-
-
-
 
 
 -- Check if a specific seat is available for a given schedule.
@@ -136,10 +124,6 @@ FOR EACH ROW EXECUTE FUNCTION enforce_discount_limit();
 -- Attempt to insert a ticket with a 60% discount
 INSERT INTO Ticket (TicketStatus, PaymentMethod, DiscountApplied, BookingReference, TotalPrice, PassengerID)
 VALUES ('Confirmed', 'Credit Card', 60.00, 'BR-1012', 2000.00, 3);
-
-
-
-
 
 
 --Get the list of upcoming train schedules that stop at a particular station on a given date.
@@ -192,7 +176,6 @@ SELECT calculate_route_total_distance(1) AS total_distance;
 
 
 
-
 -- Retrieve the travel history of a passenger, including all tickets and journeys they've taken.
 
 CREATE OR REPLACE FUNCTION get_passenger_travel_history(p_passenger_id INT)
@@ -229,4 +212,3 @@ $$ LANGUAGE plpgsql;
 
 
 SELECT * FROM get_passenger_travel_history(1);
-
